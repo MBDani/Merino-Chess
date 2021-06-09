@@ -1,0 +1,117 @@
+@import "../../app.component.scss";
+
+.imagenFondo{
+  background-size: cover; 
+  height: 100vh;
+  overflow-x: hidden;
+  background-image:  url($imagenMenu);
+}
+
+
+
+//Botones estilo #e74c3c
+.btnEstilos {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid #027EFB;
+    border-radius: 0.6em;
+    color: #00ACEE;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    width: 250px;
+
+    //Transición de color más suave
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .btnEstilos:hover, .btnEstilos:focus {
+    color: #fff;
+    box-shadow: 0 0 40px 40px #00ACEE inset;
+  }
+
+
+  .btnMarcado{
+        box-sizing: border-box;
+        background-color: #00ACEE;
+        border: 2px solid #00ACEE;
+        border-radius: 0.6em;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 400;
+        margin: 20px;
+        padding: 1.2em 2.8em;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        width: 250px;
+  }
+
+
+
+  //Botón reiniciar
+  .btnReiniciar{
+        border-radius: 10px;
+        border-style: none;
+        width: 100px;
+        height: 50px;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+        transform: scale(0.9);
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+    }
+    &:after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+  }
+  
+
+//Esto es lo que le da el color que sobresale
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
+    &:after {
+        background-color: #fff;
+    }
+}
+
+/*Configuración del tablero */
+#myBoard{
+  width: 90%;
+  z-index: 2;
+}
+
+@media (max-width: 480px) {
+   #myBoard{
+       width: 95%;
+   }
+
+}

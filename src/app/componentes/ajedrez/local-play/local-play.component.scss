@@ -1,0 +1,26 @@
+@import "../../../app.component.scss";
+
+
+.imagenFondo{
+    height: 100vh;
+    overflow-x: hidden;
+    background-image:  url($imagenJuego);
+
+    
+}
+
+
+
+/*Configuración del tablero */
+#myBoard{
+   width: 90%;
+}
+
+@media (max-width: 480px) {
+    /* smartphones, Android phones, landscape iPhone */
+    #myBoard {
+      width: 100%;
+    }
+  }
+
+

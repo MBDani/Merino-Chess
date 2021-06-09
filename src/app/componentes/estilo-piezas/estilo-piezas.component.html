@@ -1,0 +1,73 @@
+<div class="imagenFondo">
+    <app-cabecero></app-cabecero>
+   
+   
+
+    <div class="row pt-5">
+
+
+
+        <!--1º Columna de los estilos-->
+        <div class="col-md-4 px-5">
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=1" class="btnEstilos" (click)="cambiarEstilo(1)">Wikipedia</button>
+                <button *ngIf="botonMarcado ==1" class="btnMarcado">Wikipedia</button>
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=2" class="btnEstilos" (click)="cambiarEstilo(2)">Uscf</button>
+                <button *ngIf="botonMarcado ==2" class="btnMarcado">Uscf</button>
+
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=3" class="btnEstilos" (click)="cambiarEstilo(3)">Alpha</button>
+                <button *ngIf="botonMarcado ==3" class="btnMarcado">Alpha</button>
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=4" class="btnEstilos" (click)="cambiarEstilo(4)">Chess24</button>
+                <button *ngIf="botonMarcado ==4" class="btnMarcado">Chess24</button>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="row">
+                <h3 class="text-white pl-3"> Estilos de piezas</h3>
+
+                <div id="myBoard"></div>
+            </div>
+
+            <div class="row pl-3">
+                <button id="startBtn" class="btnReiniciar btn-white mt-3">Reiniciar</button>
+            </div>
+        </div>
+
+         <!--2º Columna de los estilos-->
+         <div class="col-md-4 px-5">
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=5" class="btnEstilos" (click)="cambiarEstilo(5)">Dilena</button>
+                <button *ngIf="botonMarcado ==5" class="btnMarcado">Dilena</button>
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=6" class="btnEstilos" (click)="cambiarEstilo(6)">Leipzig</button>
+                <button *ngIf="botonMarcado ==6" class="btnMarcado">Leipzig</button>
+
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=7" class="btnEstilos" (click)="cambiarEstilo(7)">Metro</button>
+                <button *ngIf="botonMarcado ==7" class="btnMarcado">Metro</button>
+            </div>
+
+            <div class="row px-4">
+                <button *ngIf="botonMarcado !=8" class="btnEstilos" (click)="cambiarEstilo(8)">Symbol</button>
+                <button *ngIf="botonMarcado ==8" class="btnMarcado">Symbol</button>
+            </div>
+        </div>
+
+    </div>
+</div>

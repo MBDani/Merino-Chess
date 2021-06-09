@@ -1,0 +1,69 @@
+@import "../../app.component.scss";
+
+.imagenFondo{
+    background-size: cover; //para que salga toda la imagen
+    height: 100vh;
+    overflow-x: hidden;
+    background-image:  url($imagenMenu);
+}
+
+.card{
+    background-color: transparent;
+    color: white;
+}
+
+//claro: royalblue  oscuro: midnightblue
+.enlace {
+    cursor: pointer;
+
+    color: #b67f00;
+    overflow: hidden;
+
+    background: linear-gradient(to right, #ff7b00, #fd7a00 50%, #fbb001 50%);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+
+    transition: background-position 800ms ease;
+
+    &:hover {
+        background-position: 0 100%;
+    }
+}
+
+
+
+//Botones
+
+.botonDesactivado{
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: #4a87c0;
+    width: 100px;
+    height: 25;
+    border-style: none;
+    color: white;
+    
+}
+
+.botonActivable{
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: #0059ff;
+    width: 100px;
+    height: 25;
+    border-style: none;
+    color: white;
+    &:hover{
+        background-color: #2600ff;
+    }
+
+    &:active{
+        transform: scale(0.9);
+        background-color: #fff;
+        color: #111;
+    }
+}

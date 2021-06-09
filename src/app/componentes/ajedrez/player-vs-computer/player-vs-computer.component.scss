@@ -1,0 +1,68 @@
+@import "../../../app.component.scss";
+
+.imagenFondo {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-image: url($imagenJuego);
+}
+
+
+/*Configuración del tablero */
+#myBoard{
+  width: 90%;
+}
+
+@media (max-width: 480px) {
+   /* smartphones, Android phones, landscape iPhone */
+   #myBoard {
+     width: 100%;
+   }
+
+ }
+
+//Botón reiniciar
+.btnReiniciar {
+  border-radius: 10px;
+  border-style: none;
+  width: 100px;
+  height: 50px;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    transform: scale(0.9);
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+}
+
+//Esto es lo que le da el color que sobresale
+.btn-white {
+  background-color: #fff;
+  color: #777;
+
+  &:after {
+    background-color: #fff;
+  }
+}
+
+

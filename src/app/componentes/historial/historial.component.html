@@ -1,0 +1,77 @@
+<div class="imagenFondo">
+    <app-cabecero></app-cabecero>
+    <div class="container table-responsive pt-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Historial</h4>
+                    </div>
+                    <table class="table table-striped  text-white text-center">
+                        <thead class="thead">
+                            <tr>
+                                <th>Nº</th>
+                                <th>Fecha</th>
+                                <th>Contrincante</th>
+                                <th>Estado</th>
+                                <th>Enlace de la partida</th>
+                                <th>Reclamar partida </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let partida of partidas; let i = index">
+
+                                <!--Número-->
+                                <td> {{i+1}} </td>
+
+                                <!--Fecha-->
+                                <td>{{partida.tiempo.seconds * 1000 | date: 'dd/MM/yyyy HH:mm'}} </td>
+
+                                <!--Contrincante-->
+                                <td *ngIf="contrincantes[i] != ''"> {{contrincantes[i]}} </td>
+                                <td *ngIf="contrincantes[i] == ''"> Buscando rival... </td>
+
+                                <!--Estado (solo se mostrará una cosa de las siguientes)-->
+                                    <!--Ganadores-->
+                                <td *ngIf="partida.ganador == usuario.username && contrincantes[i] != ''"
+                                    class="text-success">Ganaste</td>
+                                <td *ngIf="partida.ganador == contrincantes[i] && contrincantes[i] != ''"
+                                    class="text-danger">Perdiste</td>
+
+                                    <!--Turnos-->
+                                <td *ngIf="partida.ganador == '' &&  partida.tablas == false">
+                                    {{turnos[i]}} </td>
+
+
+                                <!--Tablas-->
+                                <td *ngIf="partida.tablas == true" class="text-info">Tablas</td>
+
+                                <!--Enlace a partida-->
+                                <td class="enlace" (click)="irPartida(partida.id_partida)"> Ir a partida </td>
+
+                                <!--Botón reclamar partida-->
+
+                                    <!--Se puede reclamar-->
+                                    
+                                <td
+                                    *ngIf="dt.getTime()/1000 - partida.tiempo.seconds >= 86400 && partida.ganador == '' && turnos[i] == turnoRival && partida.tablas == false">
+                                    <button  class="btn botonActivable" (click)="reclamarPartida(partida.id_partida)"> Reclamar </button>
+                                </td>
+
+                                    <!--No se puede reclamar-->
+                                    
+                                <td
+                                    *ngIf="dt.getTime()/1000 - partida.tiempo.seconds < 86400 || partida.ganador != '' || partida.tablas == true  || turnos[i] == tuTurno" >
+                                    <abbr title="Debes esperar al otro jugador durante un día para poder reclamarla y que la partida no haya acabado.">
+                                        <button  class="btn botonDesactivado" disabled="disabled" style="cursor: not-allowed"> Reclamar </button>
+                                    </abbr>
+                                    
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

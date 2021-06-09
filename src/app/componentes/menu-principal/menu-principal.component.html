@@ -1,0 +1,71 @@
+<div class="imagenFondo">
+    <app-cabecero></app-cabecero>
+
+    <div class="text-center pt-5">
+
+        <h3 class="text-white pb-2">Modos de juego</h3>
+
+        <!--Jugador contra ordenador-->
+
+        <div class="pt-3">
+
+            <button class="buttonReversible" (click)="jugarOrdenador()">
+                <span>Jugador vs Ordenador</span>
+
+                <span>
+                    <i class="fas fa-user"></i> VS <i class="fas fa-desktop"></i>
+                </span>
+            </button>
+
+        </div>
+
+
+        <!--Juego Local-->
+        <div class="pt-3">
+
+            <button class="buttonReversible" (click)="localPlay()">
+                <span>Juego Local</span>
+
+                <span>
+                    <i class="fas fa-user"></i> VS <i class="fas fa-user"></i>
+                </span>
+            </button>
+        </div>
+
+
+        <!--Online-->
+        <div class="pt-3">
+
+            <!--Si no estás logueado te lleva al menú de login-->
+            <button *ngIf="!isLoggedIn" class="buttonReversible" data-toggle="modal" data-target="#login">
+                <span>Jugar Online</span>
+
+                <span>
+                    <i class="fas fa-user"></i> VS <i class="fas fa-globe"></i>
+                </span>
+            </button>
+
+            <!--En caso de estar logueado lleva al online-->
+            <button *ngIf="isLoggedIn" class="buttonReversible" (click)="jugarOnline()">
+                <span>Jugar Online</span>
+
+                <span>
+                    <i class="fas fa-user"></i> VS <i class="fas fa-globe"></i>
+                </span>
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <app-pie-pagina></app-pie-pagina>
+
+
+    <app-registro></app-registro>
+    <app-login></app-login>

@@ -1,0 +1,98 @@
+<div class="imagenFondo" scroll=no>
+  <app-cabecero></app-cabecero>
+
+  <!--Animación de carga-->
+  <div *ngIf="cargandoPartida">
+    <h1 class="text-white text-center pt-5">BUSCANDO JUGADOR...</h1>
+    <!--Bolas girando-->
+    <div class="load">
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+    </div>
+
+  </div>
+
+
+
+  <!--Contenedor con los métodos y el tablero-->
+  <div class="row px-5">
+
+    <!--Columna izquierda-->
+    <div class="col-md-3 text-light">
+      <!--Aquí hacer una tabla con los movimientos y el estatus-->
+      <div id="status" class="pt-5 text-center text-info"> </div>
+
+
+    </div>
+    <!--Columna central-->
+    <div class="col-md-6 text-white">
+
+      <!--Tablero-->
+      <h4 *ngIf="!cargandoPartida" class="text-center">Online</h4>
+      {{contrincante}}
+      <div id="myBoard"></div>
+      {{jugadorActual}}
+
+    </div>
+
+    <!--Botones-->
+    <div *ngIf="!cargandoPartida" class="col-md-3">
+
+      <div class="mt-5 pt-5">
+        <button id="buttonRendirse" class="buttonReversible" (click)="rendirse()">
+          <span> Rendirse </span>
+          <span> <i class=" fas fa-flag"></i> </span>
+        </button>
+      </div>
+
+      <div class="pt-5">
+        <button id="buttonTablas" class="buttonReversible" (click)="enviarTablas()">
+          <span> Proponer Tablas </span>
+          <span> <i class="fas fa-handshake"></i> </span>
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!--Botones ocultos-->
+  <div [hidden]='true'>
+    <input #posicionTablero type="text" id="cogerPosicionJS" [(ngModel)]="id_tablero" value="id_tablero">
+    <button id="button" (click)="cogerPosicionJS()"></button>
+    <button id="buttonGananNegras" (click)="gananNegras()"></button>
+    <button id="buttonGananBlancas" (click)="gananBlancas()"></button>
+    <button id="modalFinal" data-toggle="modal" data-target="#exampleModalCenter">Open Modal</button>
+    <button id="buttonTablas" (click)="tablas()"></button>
+    <!--<button id="alerta" (click)="mostrarAlerta()"></button> -->
+  </div>
+
+  <!-- Modal con animación -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{resultado}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <img src={{animacionFinal}}>
+        </div>
+        <div class="modal-footer">
+          <a href="/menu" class="nav-link">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="volverMenu()">Volver al
+              menú</button>
+          </a>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Ver final</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

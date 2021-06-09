@@ -1,0 +1,117 @@
+@import "../../../app.component.scss";
+
+.imagenFondo{
+    height: 100vh;
+    overflow-x: hidden;
+    background-image:  url($imagenJuego);
+}
+
+
+/*Configuración del tablero */
+#myBoard{
+   width: 90%;
+   z-index: 2;
+}
+
+@media (max-width: 480px) {
+    #myBoard{
+        width: 100%;
+    }
+
+}
+
+//Imagen de la animación
+img{
+    width:220px;
+    height:220px;
+}
+
+
+
+
+.load{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);
+    /*change these sizes to fit into your project*/
+    width:100px;
+    height:100px;
+  }
+  .load hr{border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite}
+  
+  .load :first-child{background:#575757;animation-delay:-1.5s}
+  .load :nth-child(2){background:#c3c3c3;animation-delay:-1s}
+  .load :nth-child(3){background:#575757;animation-delay:-0.5s}
+  .load :last-child{background:#c3c3c3}
+  
+  @keyframes spin{
+    0%,100%{transform:translate(0)}
+    25%{transform:translate(160%)}
+    50%{transform:translate(160%, 160%)}
+    75%{transform:translate(0, 160%)}
+  }
+
+
+  .buttonReversible {
+    color: #fff;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: none;
+    width: 200px;
+    height: 40px;
+    line-height: 42px;
+    -webkit-perspective: 230px;
+    perspective: 230px;
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.buttonReversible span {
+    background: #00ACEE;
+    background: linear-gradient(0deg, #00ACEE 0%, #027EFB 100%);
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.buttonReversible span:nth-child(1) {
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+}
+.buttonReversible span:nth-child(2) {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+}
+.buttonReversible:hover span:nth-child(1) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+.buttonReversible:hover span:nth-child(2) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    color: transparent;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}

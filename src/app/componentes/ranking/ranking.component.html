@@ -1,0 +1,38 @@
+<div class="imagenFondo">
+    <app-cabecero></app-cabecero>
+    <div class="container table-responsive  pt-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Ranking Jugadores</h4>
+                    </div>
+                    <table class="table table-striped text-center text-white">
+                        <thead class="thead">
+                            <tr>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Partidas Ganadas</th>
+                                <th>Partidas Jugadas</th>
+                                <th>Tablas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios; let i = index">
+                                <!--Aquí añadiremos condicionales para los puestos 1, 2 y 3-->
+                                <td *ngIf="i==0"><i class="fas fa-trophy amarillo"></i> {{i+1}}</td>
+                                <td *ngIf="i==1"><i class="fas fa-trophy plata"></i> {{i+1}}</td>
+                                <td *ngIf="i==2"><i class="fas fa-trophy bronce"></i> {{i+1}}</td>
+
+                                <td *ngIf="i>2">{{i+1}}</td>
+
+                                <td>{{usuario.username}}</td>
+                                <td>{{usuario.partidasGanadas}}</td>
+                                <td>{{usuario.partidasJugadas}}</td>
+                                <td>{{usuario.tablas}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

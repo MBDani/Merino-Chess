@@ -1,0 +1,78 @@
+<!--Modal que llamaremos desde el resto de componentes-->
+<div class="modal fade" id="login">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title"><i class="fas fa-chess-king"></i> Merino-Chess</h5>
+                <!--Data-dismiss para cerrar el modal-->
+                <button class="close" data-dismiss="modal" #botonCerrar>
+                    <span>&times;</span>
+                    <!--Es el simbolo de X-->
+                </button>
+            </div>
+
+            <div class="container py-5">
+                <div class="row">
+                    <!--mx-auto es para que se centre el texto-->
+                    <div class="col md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!--Alerta en caso de que el formulario este mal validado-->
+                                <div *ngIf="mostrarAlerta" class="alert alert-danger alert-dismissible fade show"
+                                    role="alert">
+                                    <strong>{{alerta}}</strong>
+                                </div>
+
+                                <form #usuarioForm="ngForm" (ngSubmit)="login(usuarioForm)">
+
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control" #email="ngModel"
+                                                [(ngModel)]="usuario.email"
+                                                [ngClass]="{'is-invalid': email.errors && email.touched}"
+                                                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                                            <!--Usamos el siguiente patron (pattern) para comprobar que contiene arroba y un dominio al final-->
+                                            <div [hidden]="!email.errors?.required" class="invalid-feedback">
+                                                Debes escribir el email
+                                            </div>
+
+                                            <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+                                                El email no es válido
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="password">Contraseña</label>
+                                            <input type="password" name="password" class="form-control"
+                                                #password="ngModel" [(ngModel)]="usuario.password"
+                                                [ngClass]="{'is-invalid': password.errors && password.touched}" required
+                                                minlength="6">
+
+                                            <div [hidden]="!password.errors?.required" class="invalid-feedback">
+                                                Debes escribir la contraseña
+                                            </div>
+
+                                            <div [hidden]="!password.errors?.minlength" class="invalid-feedback">
+                                                Debe contener al menos 6 caracteres
+                                            </div>
+                                        </div>
+
+                                        <input type="submit" value="Login" class="btn btn-primary btn-block">
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

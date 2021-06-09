@@ -1,0 +1,31 @@
+@import "../../app.component.scss";
+
+.imagenFondo{
+    background-size: cover; //para que salga toda la imagen
+    height: 100vh;
+    overflow-x: hidden;
+    background-image:  url($imagenMenu);
+}
+
+
+.card{
+    background-color: transparent;
+    color: white;
+}
+
+
+
+.amarillo{
+    color: rgb(243, 219, 1);
+}
+
+.plata{
+    color: silver;
+}
+
+.bronce{
+    color: rgba(230, 158, 3, 0.829)
+}
+
+
+
